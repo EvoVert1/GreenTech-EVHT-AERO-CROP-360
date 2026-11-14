@@ -11,8 +11,8 @@
     "precipitation_mm_day": 15.2,
     "evapotranspiration_mm_day": 0.83,
     "atmospheric_pressure_kpa": 101.2,
-    "ingested_at_utc": "2026-11-14T17:45:12.893400200+00:00",
-    "sha256_integrity": "91d51eca4176579dcb108891b4ed043e645d4a6cca7cab93cb65c98f5d0dbe8e"
+    "ingested_at_utc": "2026-11-14T18:00:30.324954+00:00",
+    "sha256_integrity": "47db75a2fdb4203ef7da3f071ad214da30424b2c5f5242d1f4dc03dbdb7036db"
   },
   "EARTH_28.57_-80.65": {
     "cell_key": "EARTH_28.57_-80.65",
@@ -26,8 +26,8 @@
     "precipitation_mm_day": 37.8,
     "evapotranspiration_mm_day": 0.68,
     "atmospheric_pressure_kpa": 101.7,
-    "ingested_at_utc": "2026-11-14T17:45:14.250446600+00:00",
-    "sha256_integrity": "c28d6dc8e51167de5264eab2a601dc154661e729663adac7d1c476a1cb3998e6"
+    "ingested_at_utc": "2026-11-14T18:00:31.964715900+00:00",
+    "sha256_integrity": "87af79c4fcd32fedeb2fcdb0e7b4f774229f4540371f4030a96676273a88e684"
   },
   "EARTH_30.43_-9.60": {
     "cell_key": "EARTH_30.43_-9.60",
@@ -41,8 +41,8 @@
     "precipitation_mm_day": 7.3,
     "evapotranspiration_mm_day": 0.76,
     "atmospheric_pressure_kpa": 97.4,
-    "ingested_at_utc": "2026-11-14T17:45:12.253925500+00:00",
-    "sha256_integrity": "79de91c5d8cbab8391e33938c6a710846a04bd37b9946323623afd8f80dacfdc"
+    "ingested_at_utc": "2026-11-14T18:00:29.407587200+00:00",
+    "sha256_integrity": "9f8cebac4d39513955bfc0acda6b994e81b504968bbf33140045ec730f3db0a6"
   },
   "EARTH_31.63_-7.98": {
     "cell_key": "EARTH_31.63_-7.98",
@@ -56,8 +56,8 @@
     "precipitation_mm_day": 8.0,
     "evapotranspiration_mm_day": 0.7,
     "atmospheric_pressure_kpa": 92.2,
-    "ingested_at_utc": "2026-11-14T17:45:11.456490100+00:00",
-    "sha256_integrity": "7634e0b038499c53c49a931f84709e252fd721fd5d16affe2ff548a38a17cd60"
+    "ingested_at_utc": "2026-11-14T18:00:27.147490+00:00",
+    "sha256_integrity": "34cdf469817462269c38b6c1906e810dd09a9c91f12fac468d5aa02a5f906a16"
   },
   "EARTH_33.57_-7.59": {
     "cell_key": "EARTH_33.57_-7.59",
@@ -71,8 +71,8 @@
     "precipitation_mm_day": 12.9,
     "evapotranspiration_mm_day": 0.65,
     "atmospheric_pressure_kpa": 99.9,
-    "ingested_at_utc": "2026-11-14T17:45:10.680454900+00:00",
-    "sha256_integrity": "9837034a49a83026f201269fb692ec664a65d89b149fc3faffdb41c789518bfc"
+    "ingested_at_utc": "2026-11-14T18:00:26.546020+00:00",
+    "sha256_integrity": "e41bf0352fb2354176b01a41978919af0cf7ed3564ee1cd50d2a41b62272be6b"
   },
   "EARTH_36.78_-119.42": {
     "cell_key": "EARTH_36.78_-119.42",
@@ -86,8 +86,8 @@
     "precipitation_mm_day": 14.4,
     "evapotranspiration_mm_day": 0.6,
     "atmospheric_pressure_kpa": 90.0,
-    "ingested_at_utc": "2026-11-14T17:45:13.535331+00:00",
-    "sha256_integrity": "5aa499643d8eefa11f45b400346b393a3991991de81fbd65aa7dbab77652b63b"
+    "ingested_at_utc": "2026-11-14T18:00:31.068598900+00:00",
+    "sha256_integrity": "01df270d789b7f9e0d4444c12f8b149177e21176931f5efefd58047229288b2e"
   },
   "MARS_-4.59_137.44": {
     "cell_key": "MARS_-4.59_137.44",
