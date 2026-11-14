@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AERO-CROP 360 — NASA Space Apps 7-Slide Deck</title>
+<style>
+  @page { size: landscape; margin: 0; }
+  body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: #0b1120; color: #f8fafc; }
+  .slide { width: 100vw; height: 100vh; box-sizing: border-box; padding: 50px 70px; display: flex; flex-direction: column; justify-content: space-between; page-break-after: always; border-bottom: 4px solid #10b981; }
+  .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 15px; }
+  .badge { background: #10b981; color: #022c22; font-weight: 800; padding: 6px 14px; border-radius: 6px; font-size: 14px; letter-spacing: 1px; }
+  h1 { font-size: 38px; color: #34d399; margin: 10px 0; }
+  h2 { font-size: 24px; color: #94a3b8; margin: 0 0 20px 0; font-weight: 400; }
+  ul { font-size: 21px; line-height: 1.65; color: #e2e8f0; }
+  li { margin-bottom: 12px; }
+  .cta-box { background: #064e3b; border: 2px solid #10b981; padding: 18px 25px; border-radius: 10px; margin-top: 15px; }
+  .cta-box a { color: #6ee7b7; font-size: 22px; font-weight: 700; text-decoration: none; }
+  .footer { display: flex; justify-content: space-between; font-size: 14px; color: #64748b; border-top: 1px solid #1e293b; padding-top: 12px; }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <div class="header"><span class="badge">SLIDE 1 / 7 — OVERVIEW</span><span>EVO HIGH-TECH | CASABLANCA</span></div>
+  <div>
+    <h1>AERO-CROP 360</h1>
+    <h2>Sovereign Offline-First Edge AI & NASA Telemetry Engine for Climate-Resilient Agriculture</h2>
+    <ul>
+      <li><strong>Challenge:</strong> Change of Course — Adapting Agricultural Operations Using NASA Data</li>
+      <li><strong>Core Breakthrough:</strong> Pure-Rust autonomous edge daemon transforming NASA POWER & SMAP telemetry into deterministic field protocols with zero cloud dependency.</li>
+    </ul>
+    <div class="cta-box">
+      🚀 <strong>1-CLICK LIVE 3D SANDBOX:</strong> <a href="https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/">https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/</a>
+    </div>
+  </div>
+  <div class="footer"><span>NASA Space Apps Challenge</span><span>Pure Rust • SHA-256 • EN/FR/Darija</span></div>
+</div>
+
+<div class="slide">
+  <div class="header"><span class="badge">SLIDE 2 / 7 — THE PROBLEM</span><span>CLIMATE & CONNECTIVITY GAP</span></div>
+  <div>
+    <h1>When Connectivity Drops, Intelligence Goes Dark</h1>
+    <ul>
+      <li><strong>Severe Water & Heat Shocks:</strong> Sudden heatwaves (&gt;36°C) and prolonged droughts devastate yields across arid regions (Morocco, North Africa) and off-world habitats (Mars/CELSS).</li>
+      <li><strong>Cloud Fragility:</strong> Existing AgriTech platforms rely on continuous internet and costly cloud servers—failing in rural, off-grid zones where precision irrigation is needed most.</li>
+      <li><strong>Linguistic Exclusion:</strong> Raw orbital telemetry remains inaccessible to smallholder farmers speaking local dialects (Moroccan Darija).</li>
+    </ul>
+  </div>
+  <div class="footer"><span>AERO-CROP 360</span><span>Problem Statement</span></div>
+</div>
+
+<div class="slide">
+  <div class="header"><span class="badge">SLIDE 3 / 7 — ARCHITECTURE</span><span>SOVEREIGN EDGE ENGINE</span></div>
+  <div>
+    <h1>Space-Grade Telemetry in a Single Edge Binary</h1>
+    <ul>
+      <li><strong>Auto-Waking "Smart Wallet" Daemon:</strong> Written in Pure Rust (Tokio/Axum). Any sensor or CLI trigger automatically spawns the 3D Cockpit & REST API on port 8080.</li>
+      <li><strong>Dual-Mode NASA Ingestion:</strong> Syncs live <strong>NASA POWER & SMAP</strong> data when online (<code>OnlineNasaDirect</code>) and switches seamlessly to local cache when air-gapped (<code>OfflineBankSealed</code>).</li>
+      <li><strong>Cryptographic Data Integrity:</strong> Every orbital record is sealed with <strong>SHA-256 hashes</strong> for auditable scientific provenance.</li>
+    </ul>
+  </div>
+  <div class="footer"><span>AERO-CROP 360</span><span>System Architecture</span></div>
+</div>
+
+<div class="slide">
+  <div class="header"><span class="badge">SLIDE 4 / 7 — CORE ENGINES</span><span>PREDICTIVE & HAZARD MODELS</span></div>
+  <div>
+    <h1>30-Day Copilot & Calibrated Climate Shock Engine</h1>
+    <ul>
+      <li><strong>Predictive Moisture & Drought Copilot:</strong> Models daily evapotranspiration (ET0) and water-stress indices across <strong>D+7, D+14, and D+30</strong> horizons.</li>
+      <li><strong>Terrestrial Heatwave Protocol (&gt;36.0°C):</strong> Triggers automated daytime irrigation halts, geotextile shading, and nocturnal drip pulses.</li>
+      <li><strong>Mars Simulation Mode (Jezero Crater):</strong> Detects low-pressure dust-storm hazards and triggers closed-loop CELSS greenhouse sealing.</li>
+    </ul>
+  </div>
+  <div class="footer"><span>AERO-CROP 360</span><span>Scientific Modeling</span></div>
+</div>
+
+<div class="slide">
+  <div class="header"><span class="badge">SLIDE 5 / 7 — FIELD INCLUSION</span><span>TRI-LINGUAL & AUTOMATED DOSSIERS</span></div>
+  <div>
+    <h1>Bridging Orbital Science with Local Farmers</h1>
+    <ul>
+      <li><strong>Native Tri-Lingual Interface (EN / FR / Darija):</strong> Delivers immediate agronomic directives in Moroccan Darija, French, and English.</li>
+      <li><strong>Automated Mission Reporting:</strong> Generates standardized English NASA compliance dossiers (<code>/reports</code>) with MGRS grid coordinates and SHA-256 proofs.</li>
+    </ul>
+    <div class="cta-box">
+      🌐 <strong>TEST INTERACTIVE TELEMETRY:</strong> <a href="https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/">https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/</a>
+    </div>
+  </div>
+  <div class="footer"><span>AERO-CROP 360</span><span>Accessibility & Compliance</span></div>
+</div>
+
+<div class="slide">
+  <div class="header"><span class="badge">SLIDE 6 / 7 — IMPACT</span><span>MEASURABLE VALUE</span></div>
+  <div>
+    <h1>Water Sovereignty on Earth & Beyond</h1>
+    <ul>
+      <li><strong>Up to 30% Water Savings:</strong> Predictive deficit irrigation eliminates over-watering and protects crops during extreme thermal spikes.</li>
+      <li><strong>Zero Recurring Cloud Cost:</strong> Runs on low-power solar edge hardware with zero SaaS subscriptions or bandwidth lock-in.</li>
+      <li><strong>Dual-Use Planetary Readiness:</strong> Proven across both Moroccan agricultural MGRS grids and Martian closed-loop habitats.</li>
+    </ul>
+  </div>
+  <div class="footer"><span>AERO-CROP 360</span><span>Global & Off-World Impact</span></div>
+</div>
+
+<div class="slide">
+  <div class="header"><span class="badge">SLIDE 7 / 7 — DIRECT ACCESS</span><span>TRY THE PROJECT IN 1 CLICK</span></div>
+  <div>
+    <h1>Live Sandbox & Open-Source Repositories</h1>
+    <div class="cta-box">
+      🖥️ <strong>1-Click Live 3D Sandbox:</strong> <a href="https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/">https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/</a>
+    </div>
+    <ul style="margin-top: 25px;">
+      <li><strong>Primary GitHub Repository:</strong> <a style="color:#38bdf8" href="https://github.com/EvoVert1/GreenTech-EVHT-AERO-CROP-360">https://github.com/EvoVert1/GreenTech-EVHT-AERO-CROP-360</a></li>
+      <li><strong>Sovereign Codeberg Mirror:</strong> <a style="color:#38bdf8" href="https://codeberg.org/actandtouch/nasaAppChallenge">https://codeberg.org/actandtouch/nasaAppChallenge</a></li>
+      <li><strong>Team:</strong> Evo High-Tech (Casablanca) — MIT Open-Source License</li>
+    </ul>
+  </div>
+  <div class="footer"><span>Thank You — NASA Space Apps Jury</span><span>diopdissy@gmail.com</span></div>
+</div>
+
+</body>
+</html>

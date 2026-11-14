@@ -2,11 +2,12 @@
 
 ---
 
-## SLIDE 1: TITLE & MISSION
+## SLIDE 1: TITLE & LIVE SANDBOX ACCESS
 **AERO-CROP 360: Sovereign Offline-First Edge AI & NASA Telemetry Engine**
 * **Team:** Evo High-Tech (Casablanca, Morocco)
 * **Challenge:** Change of Course — Adapting Agricultural Operations Using NASA Data
-* **Core Innovation:** A 100% offline-first, Pure-Rust autonomous agronomic intelligence daemon transforming orbital NASA telemetry into deterministic field protocols with zero cloud dependency.
+* **Interactive 3D Sandbox (1-Click Live Demo):** [Launch AERO-CROP 360 Cockpit](https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/)
+* **Source Code & Data Bank:** [GitHub Repository](https://github.com/EvoVert1/GreenTech-EVHT-AERO-CROP-360)
 
 ---
 
@@ -14,7 +15,7 @@
 **When Connectivity Drops, Agricultural Intelligence Goes Dark**
 * **Climate Volatility:** Sudden heatwaves (>36°C) and severe droughts threaten yields across arid regions (Morocco, North Africa, American Southwest) and future closed-loop off-world habitats (Mars/CELSS).
 * **The Cloud Bottleneck:** Existing precision-ag tools rely on fragile, high-latency cloud platforms that fail in rural, off-grid environments where water optimization is most critical.
-* **Language Barrier:** Orbital climate metrics remain inaccessible to local farmers speaking regional dialects (such as Moroccan Darija).
+* **Language Barrier:** Orbital climate metrics remain inaccessible to local farmers speaking regional dialects (Moroccan Darija).
 
 ---
 
@@ -28,7 +29,7 @@
 
 ## SLIDE 4: CORE TECHNICAL ENGINES
 **Deterministic Forecasting & Calibrated Climate Shock Protocols**
-* **30-Day Predictive Copilot:** Computes daily evapotranspiration ($ET_0$) and spectral water-stress indices to forecast root-zone soil moisture and drought risk at **D+7, D+14, and D+30**.
+* **30-Day Predictive Copilot:** Computes daily evapotranspiration (ET0) and spectral water-stress indices to forecast root-zone soil moisture and drought risk at **D+7, D+14, and D+30**.
 * **Climate Shock Engine:**
   * *Terrestrial Mode:* Surface temperatures >36.0°C trigger automatic daytime irrigation halts, geotextile shading, and nocturnal drip pulses.
   * *Mars Simulation Mode:* Low-pressure regolith/dust-storm anomalies trigger closed-loop CELSS greenhouse sealing.
@@ -39,7 +40,7 @@
 **Bridging Orbital Science with Local Action**
 * **Native Tri-Lingual Engine (`EN` / `FR` / `Darija`):** Translates complex satellite diagnostics into immediate, actionable instructions in Moroccan Darija, French, and English.
 * **Automated NASA Compliance Dossiers:** Generates standardized, audit-ready English Markdown submission reports (`/reports`) complete with MGRS grid coordinates and SHA-256 proofs.
-* **Interactive 3D Web Cockpit:** Local visualization dashboard serving live planetary telemetry and predictive risk curves.
+* **Interactive 3D Web Cockpit:** [Test the Live Sandbox](https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/) to explore Earth & Mars telemetry in real time.
 
 ---
 
@@ -51,8 +52,9 @@
 
 ---
 
-## SLIDE 7: LIVE REPOSITORY & ARCHITECTURE PROOF
-**Open-Source, Deterministic, and Ready for Deployment**
-* **Tech Stack:** Pure Rust (2021 Edition), Tokio, Axum, Serde, SHA-2, HTML5/JS 3D Cockpit.
-* **Public Source Code & Dossiers:** `https://github.com/EvoVert1/GreenTech-EVHT-AERO-CROP-360`
+## SLIDE 7: 1-CLICK ACCESS & ARCHITECTURE PROOF
+**Explore the Entire Project Instantly**
+* **Live 3D Interactive Sandbox:** https://evovert1.github.io/GreenTech-EVHT-AERO-CROP-360/
+* **Pure-Rust Source Code & Reports:** https://github.com/EvoVert1/GreenTech-EVHT-AERO-CROP-360
+* **Sovereign Mirror (Codeberg):** https://codeberg.org/actandtouch/nasaAppChallenge
 * **License:** MIT Open-Source License — Built by Evo High-Tech (Casablanca).
