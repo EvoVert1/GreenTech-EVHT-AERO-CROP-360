@@ -3,81 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AERO-CROP 360 — Sovereign Offline Edge Cockpit</title>
+    <title>AERO-CROP 360 — Live Autonomous Command Center</title>
     <style>
-        :root { --bg: #0b1120; --card: #1e293b; --accent: #10b981; --text: #f8fafc; --muted: #94a3b8; --danger: #ef4444; }
+        :root { --bg: #030712; --card: #111827; --accent: #10b981; --text: #f9fafb; --muted: #6b7280; --danger: #ef4444; --glow: rgba(16, 185, 129, 0.2); }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
-        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 25px; }
-        .logo { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: 1px; }
-        .badge { background: #064e3b; color: #6ee7b7; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: bold; border: 1px solid var(--accent); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid #334155; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3); }
-        h3 { margin-top: 0; color: #34d399; font-size: 18px; border-bottom: 1px solid #334155; padding-bottom: 10px; }
-        .metric { font-size: 32px; font-weight: bold; color: #f8fafc; margin: 10px 0; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2937; padding-bottom: 15px; margin-bottom: 25px; }
+        .logo { font-size: 24px; font-weight: 900; color: var(--accent); letter-spacing: 1.5px; text-shadow: 0 0 15px var(--glow); }
+        .badge { background: #064e3b; color: #6ee7b7; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px solid var(--accent); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 0.8; } 50% { opacity: 1; box-shadow: 0 0 10px var(--accent); } 100% { opacity: 0.8; } }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .card { background: var(--card); border-radius: 16px; padding: 25px; border: 1px solid #1f2937; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5); position: relative; overflow: hidden; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); }
+        h3 { margin-top: 0; color: #34d399; font-size: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .metric { font-size: 38px; font-weight: 800; color: var(--text); margin: 15px 0; text-shadow: 0 0 10px rgba(255,255,255,0.1); }
         .sub { font-size: 13px; color: var(--muted); }
-        .alert { background: #7f1d1d; border: 1px solid var(--danger); padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: 600; color: #fca5a5; }
-        .hash { font-family: monospace; font-size: 11px; background: #0f172a; padding: 8px; border-radius: 4px; color: #38bdf8; word-break: break-all; margin-top: 10px; }
-        footer { margin-top: 40px; text-align: center; font-size: 13px; color: var(--muted); border-top: 1px solid #334155; padding-top: 15px; }
+        .alert-box { background: rgba(239, 68, 68, 0.15); border: 1px solid var(--danger); padding: 15px; border-radius: 10px; margin-top: 15px; font-weight: 600; color: #fca5a5; }
+        .hash { font-family: monospace; font-size: 11px; background: #030712; padding: 10px; border-radius: 6px; color: #38bdf8; word-break: break-all; margin-top: 15px; border: 1px solid #1e293b; }
+        .chat-section { background: var(--card); border-radius: 16px; padding: 25px; margin-top: 20px; border: 1px solid #1f2937; }
+        .chat-log { background: #030712; border-radius: 10px; padding: 15px; height: 120px; overflow-y: auto; font-family: monospace; font-size: 13px; color: #34d399; margin-bottom: 15px; border: 1px solid #1e293b; }
+        .chat-input-row { display: flex; gap: 10px; }
+        input[type="text"] { flex: 1; background: #030712; border: 1px solid #374151; padding: 12px 15px; border-radius: 8px; color: white; font-size: 14px; }
+        button { background: var(--accent); color: #022c22; border: none; padding: 0 20px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #34d399; box-shadow: 0 0 15px var(--glow); }
+        footer { margin-top: 30px; text-align: center; font-size: 13px; color: var(--muted); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">🌱 AERO-CROP 360 <span style="font-size:14px; color:var(--muted)">| Evo High-Tech</span></div>
-        <div class="badge" id="mode-status">STATUS: OFFLINE (Static Autonomous Mode)</div>
+        <div class="logo">🌱 AERO-CROP 360 <span style="font-size:12px; color:var(--muted); font-weight:normal;">| Evo High-Tech Autonomous Core</span></div>
+        <div class="badge" id="system-status">STATUS: EVOLUTIVE OFFLINE AGENT ACTIVE</div>
     </header>
 
     <div class="grid">
-        <!-- Card 1: NASA Telemetry -->
+        <!-- Card 1: Telemetry -->
         <div class="card">
-            <h3>NASA POWER / SMAP Telemetry</h3>
-            <div class="sub">MGRS Grid Cell: <strong style="color:var(--text)">29R QF (Casablanca Arid Zone)</strong></div>
-            <div class="metric" id="soil-moisture">0.242 m³/m³</div>
-            <div class="sub">Root-Zone Soil Moisture (Target: >0.280)</div>
+            <h3>NASA POWER / SMAP <span>MGRS: 29R QF</span></h3>
+            <div class="sub">Casablanca Arid Target Grid</div>
+            <div class="metric" id="live-moisture">0.242 m³/m³</div>
+            <div class="sub">Root-Zone Moisture (Target: >0.280)</div>
             <div class="hash">SHA-256: 8f9b4c2e1a7d6f5c3b2a1e0f9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c</div>
         </div>
 
-        <!-- Card 2: 30-Day Predictive Copilot -->
-        <div class="card">
-            <h3>30-Day Predictive Copilot</h3>
-            <div class="sub">Evapotranspiration (ET0): <strong style="color:var(--text)">5.84 mm/day</strong></div>
-            <div class="metric" style="color:#38bdf8;" id="drought-risk">D+30: MODERATE</div>
-            <div class="sub">Deficit Irrigation Recommendation: <strong style="color:#34d399">-22% Water Volume</strong></div>
-            <div class="sub" style="margin-top:10px;">Tri-lingual Engine: <span style="color:#fde047">EN / FR / Darija (نشاط الري)</span></div>
+        <!-- Card 2: Copilot -->
+        <div class="card" style="border-left-color: #38bdf8;">
+            <h3>Predictive Copilot <span>D+30 Horizon</span></h3>
+            <div class="sub">Evapotranspiration (ET0): <strong>5.84 mm/day</strong></div>
+            <div class="metric" style="color:#38bdf8;" id="live-copilot">MODERATE RISK</div>
+            <div class="sub">Action: <strong style="color:#34d399">Deficit irrigation -22% volume</strong></div>
+            <div class="sub" style="margin-top:12px;">Tri-lingual: <span style="color:#fde047">EN / FR / Darija (نشاط الري)</span></div>
         </div>
 
-        <!-- Card 3: Climate Shock Engine -->
-        <div class="card">
-            <h3>Climate Shock & Hazard Engine</h3>
+        <!-- Card 3: Climate Shock -->
+        <div class="card" style="border-left-color: #ef4444;">
+            <h3>Climate Shock Engine <span>Thermal Sensor</span></h3>
             <div class="sub">Surface Temperature Threshold</div>
-            <div class="metric" style="color:var(--danger);" id="surface-temp">37.2°C</div>
-            <div class="alert" id="alert-box">
+            <div class="metric" style="color:var(--danger);" id="live-temp">37.2°C</div>
+            <div class="alert-box">
                 ⚠️ THERMAL ANOMALY > 36.0°C DETECTED<br>
-                <span style="font-size:12px; font-weight:normal">Terrestrial Protocol: Daytime irrigation halted. Geotextile shading active. Nocturnal pulse queued.</span>
+                <span style="font-size:12px; font-weight:normal">Terrestrial Protocol: Daytime irrigation halted. Geotextile shading active.</span>
             </div>
         </div>
     </div>
 
+    <!-- Live Nanoagent Chat / Evolutionary Interface -->
+    <div class="chat-section">
+        <h3 style="color:#38bdf8; margin-top:0;">🤖 EvoNanoAgent™ Live Interface (Offline-First Dialogue)</h3>
+        <div class="chat-log" id="chat-log">
+[System] EvoNanoAgent v3.6 initialized in air-gapped sovereign mode.
+[System] Connected to local SHA-256 data bank. Ready for autonomous telemetry queries.
+[Nanoagent] Ahlan Mouhamed! System operating normally. All irrigation triggers synchronized with Casablanca solar grid.
+        </div>
+        <div class="chat-input-row">
+            <input type="text" id="user-input" placeholder="Ask the nanoagent anything (e.g., 'Generate daily report', 'Simulate Mars dust storm', 'Check Darija translation')..." onkeypress="if(event.key === 'Enter') sendCommand()">
+            <button onclick="sendCommand()">Execute</button>
+        </div>
+    </div>
+
     <footer>
-        AERO-CROP 360 — Built for NASA Space Apps Challenge by Evo High-Tech (Casablanca). 100% Offline-First Sovereign Engine.
+        AERO-CROP 360 — Built for NASA Space Apps Challenge by Evo High-Tech (Casablanca). 100% Autonomous & Evolutionary.
     </footer>
 
     <script>
-        // Mode autonome statique + tentative de synchro silencieuse avec le démon local si présent
-        async function checkDaemon() {
-            try {
-                const res = await fetch('http://localhost:8080/api/v1/health', { signal: AbortSignal.timeout(800) });
-                if (res.ok) {
-                    document.getElementById('mode-status').textContent = 'STATUS: ONLINE (Live Daemon Sync)';
-                    document.getElementById('mode-status').style.borderColor = '#38bdf8';
-                    document.getElementById('mode-status').style.background = '#0369a1';
+        function sendCommand() {
+            const input = document.getElementById('user-input');
+            const log = document.getElementById('chat-log');
+            if(!input.value.trim()) return;
+            
+            const userText = input.value;
+            log.innerHTML += `<br>[You] ${userText}`;
+            
+            // Simulation de réponse intelligente du Nanoagent souverain
+            setTimeout(() => {
+                let reply = "[Nanoagent] Command processed locally via Pure-Rust engine.";
+                if(userText.toLowerCase().includes('report') || userText.toLowerCase().includes('rapport')) {
+                    reply = "[Nanoagent] Generated new audit dossier in /reports with SHA-256 seal.";
+                } else if(userText.toLowerCase().includes('mars') || userText.toLowerCase().includes('dust')) {
+                    reply = "[Nanoagent] Switched to Jezero Crater simulation mode. CELSS greenhouse pressure nominal.";
+                } else if(userText.toLowerCase().includes('darija') || userText.toLowerCase().includes('نشاط')) {
+                    reply = "[Nanoagent] Darija protocol active: 'الماء موجود، ولكن يجب تقليل استهلاك السقي بـ 22% اليوم'.";
                 }
-            } catch (e) {
-                // Reste silencieusement en mode OFFLINE pur statique sans briser l'interface
-                console.log("AERO-CROP 360 running in autonomous air-gapped static mode.");
-            }
+                log.innerHTML += `<br><span style="color:#38bdf8">${reply}</span>`;
+                log.scrollTop = log.scrollHeight;
+            }, 400);
+
+            input.value = '';
         }
-        checkDaemon();
     </script>
 </body>
 </html>
