@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AERO-CROP 360 — Cockpit Souverain Evo High-Tech</title>
+  <style>
+    :root { --bg: #070b14; --panel: #0f172a; --accent: #38bdf8; --mars: #f97316; --ok: #10b981; --text: #e2e8f0; }
+    * { box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { margin: 0; background: var(--bg); color: var(--text); display: grid; grid-template-rows: 60px 1fr; height: 100vh; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; background: #0b1120; border-bottom: 1px solid #1e293b; }
+    .badge { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(16,185,129,0.15); color: var(--ok); border: 1px solid var(--ok); }
+    main { display: grid; grid-template-columns: 360px 1fr 400px; gap: 16px; padding: 16px; overflow: hidden; }
+    .card { background: var(--panel); border: 1px solid #1e293b; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; overflow-y: auto; }
+    h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-top: 0; }
+    label { font-size: 12px; color: #94a3b8; margin-top: 10px; display: block; }
+    input, textarea, select, button { width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #020617; color: var(--text); }
+    button { background: linear-gradient(135deg, #0284c7, #2563eb); border: none; font-weight: 600; cursor: pointer; margin-top: 14px; }
+    button.mars-btn { background: linear-gradient(135deg, #ea580c, #dc2626); }
+    #viewport3d { width: 100%; height: 100%; min-height: 360px; border-radius: 8px; background: radial-gradient(circle at center, #0f294a 0%, #020617 100%); cursor: crosshair; }
+    .pillar { background: #020617; border-left: 3px solid var(--accent); padding: 10px; border-radius: 6px; margin-bottom: 10px; font-size: 13px; }
+    .pillar strong { color: #fff; display: block; margin-bottom: 4px; }
+    .presets { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+    .presets button { margin-top: 0; font-size: 12px; padding: 8px; background: #1e293b; }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>EVO HIGH-TECH</strong> // AERO-CROP 360 COCKPIT 3D (100% PURE RUST)</div>
+    <div id="daemonStatus" class="badge">DAEMON & BANQUE NASA : SYNCHRONISÉS</div>
+  </header>
+  <main>
+    <section class="card">
+      <h2>1. Entrée Multimodale</h2>
+      <label>Requête / Chat NanoAgent</label>
+      <textarea id="query" rows="3" placeholder="Ex: Audit stress hydrique Casablanca ou Serre Mars Jezero..."></textarea>
+      <div class="presets">
+        <button type="button" onclick="setTarget(33.5731, -7.5898, false)">Casablanca (Terre)</button>
+        <button type="button" onclick="setTarget(31.6295, -7.9811, false)">Marrakech (Aride)</button>
+        <button type="button" onclick="setTarget(18.3800, 77.5800, true)">Jezero (Mars)</button>
+        <button type="button" onclick="setTarget(-4.5895, 137.4417, true)">Gale (Mars)</button>
+      </div>
+      <label>Latitude / Longitude</label>
+      <div style="display:flex; gap:8px;">
+        <input id="lat" type="number" step="0.0001" value="33.5731" />
+        <input id="lon" type="number" step="0.0001" value="-7.5898" />
+      </div>
+      <label>Chemin Capture Satellite / Photo Terrain</label>
+      <input id="imagePath" type="text" value="bank/captures/sandbox_chaouia_parcelle.png" />
+      <label>Mode Planétaire</label>
+      <select id="forceMars">
+        <option value="false">TERRE (SMAP / ECOSTRESS / POWER)</option>
+        <option value="true">MARS (MEDA / REMS / Serre CELSS)</option>
+      </select>
+      <button onclick="runAudit()">Exécuter l'Orchestrateur 5 Piliers</button>
+    </section>
+
+    <section class="card" style="padding:12px;">
+      <h2>2. Visualisation Orbitale & Maillage Spectral 3D</h2>
+      <canvas id="viewport3d"></canvas>
+      <div id="execSummary" style="margin-top:10px; font-size:13px; color:#cbd5e1;">Cliquez sur le globe 3D ou lancez un audit pour projeter la télémétrie.</div>
+    </section>
+
+    <section class="card">
+      <h2>3. Rapport des 5 Piliers (10 Prix NASA)</h2>
+      <div id="pillarsContainer">En attente d'exécution...</div>
+    </section>
+  </main>
+
+  <script>
+    const canvas = document.getElementById('viewport3d');
+    const ctx = canvas.getContext('2d');
+    let rot = 0, currentStress = 0.5, isMarsMode = false;
+
+    function setTarget(lat, lon, mars) {
+      document.getElementById('lat').value = lat;
+      document.getElementById('lon').value = lon;
+      document.getElementById('forceMars').value = mars ? 'true' : 'false';
+      isMarsMode = mars;
+      runAudit();
+    }
+
+    function drawGlobe() {
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+      const cx = canvas.width / 2, cy = canvas.height / 2;
+      const r = Math.min(cx, cy) * 0.72;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Halo atmosphérique
+      const grad = ctx.createRadialGradient(cx, cy, r * 0.85, cx, cy, r * 1.18);
+      grad.addColorStop(0, isMarsMode ? 'rgba(249,115,22,0.35)' : 'rgba(56,189,248,0.35)');
+      grad.addColorStop(1, 'rgba(2,6,23,0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath(); ctx.arc(cx, cy, r * 1.18, 0, Math.PI * 2); ctx.fill();
+
+      // Sphère planétaire
+      ctx.strokeStyle = isMarsMode ? '#f97316' : '#38bdf8';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+
+      // Méridiens & Parallèles 3D rotatifs
+      for (let i = -3; i <= 3; i++) {
+        const y = cy + (i / 4) * r;
+        const rx = Math.sqrt(Math.max(0, r * r - (y - cy) * (y - cy)));
+        ctx.beginPath();
+        ctx.ellipse(cx, y, rx, rx * 0.22, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(148,163,184,0.22)';
+        ctx.stroke();
+      }
+      for (let j = 0; j < 6; j++) {
+        const angle = rot + (j * Math.PI) / 6;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, Math.abs(Math.cos(angle)) * r, r, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(56,189,248,0.25)';
+        ctx.stroke();
+      }
+
+      // Point cible télémétrique
+      const lat = parseFloat(document.getElementById('lat').value) || 0;
+      const lon = parseFloat(document.getElementById('lon').value) || 0;
+      const py = cy - (lat / 90) * r * 0.85;
+      const px = cx + Math.sin(rot + (lon * Math.PI) / 180) * r * 0.75;
+      ctx.fillStyle = currentStress > 0.6 ? '#ef4444' : '#10b981';
+      ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = '#fff'; ctx.stroke();
+
+      rot += 0.004;
+      requestAnimationFrame(drawGlobe);
+    }
+
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+      document.getElementById('lat').value = (-ny * 75).toFixed(4);
+      document.getElementById('lon').value = (nx * 160).toFixed(4);
+      runAudit();
+    });
+
+    async function runAudit() {
+      const payload = {
+        query: document.getElementById('query').value || null,
+        lat: parseFloat(document.getElementById('lat').value),
+        lon: parseFloat(document.getElementById('lon').value),
+        image_path: document.getElementById('imagePath').value || null,
+        force_mars: document.getElementById('forceMars').value === 'true'
+      };
+      isMarsMode = payload.force_mars;
+      const res = await fetch('/api/v1/audit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      currentStress = data.photography.water_stress_index;
+      document.getElementById('execSummary').innerText = data.executive_synthesis;
+      const container = document.getElementById('pillarsContainer');
+      container.innerHTML = data.pillars.map(p => `
+        <div class="pillar">
+          <strong>[${p.pillar_id}] ${p.pillar_name} (${p.execution_time_us} µs)</strong>
+          <div>${p.diagnostic}</div>
+          <div style="color:#38bdf8; margin-top:4px;">Action : ${p.recommended_action}</div>
+        </div>
+      `).join('');
+    }
+
+    async function refreshHealth() {
+      try {
+        const r = await fetch('/health');
+        const h = await r.json();
+        document.getElementById('daemonStatus').innerText = `DAEMON ACTIF | BANQUE NASA : ${h.databank_cells} CELLULES`;
+      } catch (e) {}
+    }
+
+    drawGlobe();
+    refreshHealth();
+    setInterval(refreshHealth, 10000);
+  </script>
+</body>
+</html>

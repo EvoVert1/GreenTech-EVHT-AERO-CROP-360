@@ -1,0 +1,96 @@
+{
+  "report_id": "EVHT-NASA-English-D10C42",
+  "generated_at_utc": "2026-11-14T11:23:45.052078100+00:00",
+  "link_state": "OnlineNasaDirect",
+  "team": "Evohightech (Casablanca)",
+  "challenge": "Changement de cap : adapter les exploitations agricoles grâce aux données de la NASA",
+  "cartography": {
+    "body": "Earth",
+    "lat": 33.5731,
+    "lon": -7.5898,
+    "elevation_m": 150.6,
+    "climate_zone": "Csa/BSk - Méditerranéen / Semi-Aride",
+    "grid_code": "MGRS-29N 58980 57309",
+    "auto_located": true
+  },
+  "photography": {
+    "source_analyzed": false,
+    "resolution": [
+      0,
+      0
+    ],
+    "mean_rgb": [
+      138.0,
+      146.0,
+      112.0
+    ],
+    "vari_index": 0.046,
+    "pseudo_ndvi": 0.34,
+    "water_stress_index": 0.62,
+    "canopy_coverage_pct": 41.5,
+    "thermal_anomaly_score": 38.0
+  },
+  "bank_record": {
+    "cell_key": "EARTH_33.57_-7.59",
+    "body": "EARTH",
+    "lat": 33.5731,
+    "lon": -7.5898,
+    "source_dataset": "NASA POWER LARC (Live Ingested)",
+    "soil_moisture_pct": 59.0,
+    "surface_temp_c": 18.6,
+    "solar_irradiance_kwh_m2": 189.3,
+    "precipitation_mm_day": 12.9,
+    "evapotranspiration_mm_day": 0.65,
+    "atmospheric_pressure_kpa": 99.9,
+    "ingested_at_utc": "2026-11-14T11:23:45.043102900+00:00",
+    "sha256_integrity": "c03a0a09c06d449c9050cb397654c906ddf0f13abc8d3b45474c3ea648774e0a"
+  },
+  "predictive_forecasts": [
+    {
+      "horizon_days": 7,
+      "projected_soil_moisture_pct": 58.9,
+      "drought_risk_index": 0.0,
+      "recommended_action_window": "J+7 forecast computed with risk index 0.00"
+    },
+    {
+      "horizon_days": 14,
+      "projected_soil_moisture_pct": 58.7,
+      "drought_risk_index": 0.0,
+      "recommended_action_window": "J+14 forecast computed with risk index 0.00"
+    },
+    {
+      "horizon_days": 30,
+      "projected_soil_moisture_pct": 58.5,
+      "drought_risk_index": 0.0,
+      "recommended_action_window": "J+30 forecast computed with risk index 0.00"
+    }
+  ],
+  "weather_alert": {
+    "alert_level": "CRITICAL",
+    "hazard_type": "HEATWAVE / CANICULE",
+    "trigger_condition": "Surface temp critique (18.6°C)",
+    "emergency_protocol": "Arret irrigation de jour, deploiement paillage thermique et ombrage."
+  },
+  "pillars": [
+    {
+      "pillar_id": "NASA-SUBMISSION-ENGLISH",
+      "pillar_name": "Dossier Officiel NASA [English — Multilingue]",
+      "target_awards": [
+        "Meilleure utilisation de la science",
+        "Impact local & galactique",
+        "Connexion mondiale"
+      ],
+      "execution_time_us": 195,
+      "confidence_score": 0.99,
+      "diagnostic": "Agronomic analysis: Soil moisture at 59.0%, Surface temperature at 18.6°C. Hazard detected: HEATWAVE / CANICULE.",
+      "metrics": {
+        "weather_hazard": "HEATWAVE / CANICULE",
+        "language": "English",
+        "alert_status": "CRITICAL"
+      },
+      "recommended_action": "Recommended action: Arret irrigation de jour, deploiement paillage thermique et ombrage."
+    }
+  ],
+  "executive_synthesis": "[Langue: English | Alerte: CRITICAL] Cellule EARTH_33.57_-7.59 | Agronomic analysis: Soil moisture at 59.0%, Surface temperature at 18.6°C. Hazard detected: HEATWAVE / CANICULE. | Recommended action: Arret irrigation de jour, deploiement paillage thermique et ombrage.",
+  "global_readiness_score": 98.8
+}

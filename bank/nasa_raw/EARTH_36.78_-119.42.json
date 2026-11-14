@@ -1,0 +1,133 @@
+{
+  "geometry": {
+    "coordinates": [
+      -119.418,
+      36.778,
+      1039.15
+    ],
+    "type": "Point"
+  },
+  "header": {
+    "api": {
+      "name": "POWER Climatology API",
+      "version": "v2.10.1"
+    },
+    "fill_value": -999.0,
+    "range": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)",
+    "sources": [
+      "SYN1DEG",
+      "MERRA2"
+    ],
+    "time_standard": "LST",
+    "title": "NASA/POWER Source Native Resolution Climatology Climatologies"
+  },
+  "messages": [
+    "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+  ],
+  "parameters": {
+    "ALLSKY_SFC_SW_DWN": {
+      "longname": "All Sky Surface Shortwave Downward Irradiance",
+      "units": "MJ/m^2/day"
+    },
+    "GWETROOT": {
+      "longname": "Root Zone Soil Wetness",
+      "units": "1"
+    },
+    "PRECTOTCORR": {
+      "longname": "Precipitation Corrected",
+      "units": "mm/day"
+    },
+    "PS": {
+      "longname": "Surface Pressure",
+      "units": "kPa"
+    },
+    "T2M": {
+      "longname": "Temperature at 2 Meters",
+      "units": "C"
+    }
+  },
+  "properties": {
+    "parameter": {
+      "ALLSKY_SFC_SW_DWN": {
+        "ANN": 19.59,
+        "APR": 23.27,
+        "AUG": 26.73,
+        "DEC": 8.05,
+        "FEB": 12.94,
+        "JAN": 8.8,
+        "JUL": 29.19,
+        "JUN": 30.45,
+        "MAR": 18.25,
+        "MAY": 27.59,
+        "NOV": 11.04,
+        "OCT": 16.35,
+        "SEP": 22.1
+      },
+      "GWETROOT": {
+        "ANN": 0.57,
+        "APR": 0.68,
+        "AUG": 0.46,
+        "DEC": 0.58,
+        "FEB": 0.71,
+        "JAN": 0.68,
+        "JUL": 0.46,
+        "JUN": 0.5,
+        "MAR": 0.72,
+        "MAY": 0.58,
+        "NOV": 0.51,
+        "OCT": 0.47,
+        "SEP": 0.46
+      },
+      "PRECTOTCORR": {
+        "ANN": 1.44,
+        "APR": 1.67,
+        "AUG": 0.12,
+        "DEC": 3.19,
+        "FEB": 3.06,
+        "JAN": 3.06,
+        "JUL": 0.17,
+        "JUN": 0.17,
+        "MAR": 2.5,
+        "MAY": 0.82,
+        "NOV": 1.56,
+        "OCT": 0.93,
+        "SEP": 0.14
+      },
+      "PS": {
+        "ANN": 89.97,
+        "APR": 89.89,
+        "AUG": 89.92,
+        "DEC": 90.13,
+        "FEB": 90.02,
+        "JAN": 90.2,
+        "JUL": 89.93,
+        "JUN": 89.79,
+        "MAR": 90.01,
+        "MAY": 89.82,
+        "NOV": 90.11,
+        "OCT": 89.96,
+        "SEP": 89.88
+      },
+      "T2M": {
+        "ANN": 14.68,
+        "APR": 11.32,
+        "AUG": 24.92,
+        "DEC": 5.82,
+        "FEB": 6.54,
+        "JAN": 6.35,
+        "JUL": 26.16,
+        "JUN": 22.02,
+        "MAR": 8.85,
+        "MAY": 16.2,
+        "NOV": 10.13,
+        "OCT": 15.76,
+        "SEP": 21.56
+      }
+    }
+  },
+  "times": {
+    "data": 0.178,
+    "process": 0.03
+  },
+  "type": "Feature"
+}
