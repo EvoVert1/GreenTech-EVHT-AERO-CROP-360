@@ -1,0 +1,11 @@
+﻿{
+  "source": "NASA POWER & SMAP API (Direct Edge Ingestion)",
+  "location": "Casablanca Arid Zone (MGRS 29R QF)",
+  "metrics": {
+    "soil_moisture_m3_m3": 0.242,
+    "target_threshold": 0.280,
+    "evapotranspiration_mm_day": 5.84,
+    "surface_temperature_c": 37.2
+  },
+  "status": "Secured in Local Air-Gapped Bank"
+}

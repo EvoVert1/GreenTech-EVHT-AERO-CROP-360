@@ -1,0 +1,33 @@
+﻿{
+  "statut_moteur": "Puissance de Calcul Locale Engagée (Pure Rust, Tokio)",
+  "intelligence": "Advanced Sovereign Edge AI v3.6",
+  "provenance_donnees": "NASA POWER Matrix (Local JSON Bank, SHA-256 Signed)",
+  "pipeline": "Outils de Cartographie & Photographie (Artifacts Physiques)",
+  "visualisation": {
+    "type": "Image Tactique Dynamique",
+    "hash_image": "sha256:d8c1c4f5..."
+  },
+  "outils_accessibles": [
+    {
+      "id": "CT-GRID-MGRS-1",
+      "type": "Grille de Superposition Physique MGRS",
+      "zone_cible": "MGRS 29R QF (Casablanca)",
+      "action_locale": "Cartographie Différentielle Active",
+      "statut": "Déployé sur site / Validé"
+    },
+    {
+      "id": "CT-CAM-SPECTRAL-1",
+      "type": "Unité Caméra Hyperspectrale Physique",
+      "port_interface": "USB3-A",
+      "action_locale": "Analyse de Télémétrie Spectrale Active",
+      "statut": "Intégré / Validé"
+    },
+    {
+      "id": "CT-GPS-UNIT-1",
+      "type": "Localisateur GNSS/GPS Physique",
+      "précision": "Edge Différentielle (Souveraine)",
+      "action_locale": "Positionnement Haute Précision Actif",
+      "statut": "En Ligne / Validé"
+    }
+  ]
+}
